@@ -1,0 +1,53 @@
+{
+	"name": "hq-lucky",
+	"version": "0.0.3",
+	"main": "index.js",
+	"author": "Step",
+	"description": "xxx",
+	"license": "MIT",
+	"scripts": {
+		"electronmon:debug": "electronmon . --debug",
+		"electron:debug": "electron . --debug",
+		"electron": "electron .",
+		"electronmon": "electronmon .",
+		"release:mac": "electron-builder --mac",
+		"release:win64": "electron-builder --win --x64",
+		"release:win32": "electron-builder --win --ia32",
+		"release:win": "electron-builder --win --x64 --ia32"
+	},
+	"build": {
+		"appId": "com.hq.lucky",
+		"productName": "HQ",
+		"publish": [
+			{
+				"provider": "generic",
+				"url":"http://127.0.0.1:9230/download/"
+			}
+		],
+		"mac": {
+			"category": "out",
+			"icon": "./build/icon.png",
+			"artifactName": "${productName}_mac_setup_${version}.${ext}"
+		},
+		"win": {
+			"artifactName": "${productName}_win_setup_${version}.${ext}"
+		}
+	},
+	"dependencies": {
+		"axios": "^0.19.2",
+		"bson-objectid": "^1.3.0",
+		"chokidar": "^3.4.0",
+		"compressing": "^1.5.1",
+		"electron-store": "^5.1.1",
+		"electron-updater": "^4.3.5",
+		"fast-xml-parser": "^3.17.3",
+		"node-fetch": "^2.6.0",
+		"protobufjs": "^6.10.1"
+	},
+	"devDependencies": {
+		"electron": "^9.2.0",
+		"electron-builder": "^22.6.0",
+		"electron-packager": "^14.2.1",
+		"electronmon": "^1.1.0"
+	}
+}
